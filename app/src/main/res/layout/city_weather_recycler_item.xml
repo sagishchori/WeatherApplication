@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="cityData"
+            type="com.sagishchori.weatherapplication.models.current.CityWeatherItem" />
+
+        <variable
+            name="weatherItem"
+            type="com.sagishchori.weatherapplication.models.current.WeatherItem" />
+
+        <variable
+            name="weatherMain"
+            type="com.sagishchori.weatherapplication.models.current.Main" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/unit">
+
+        <ImageView
+            android:id="@+id/weather_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/min_icon_size"
+            android:minHeight="@dimen/min_icon_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/city_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/half_unit"
+            android:layout_marginRight="@dimen/unit"
+            android:gravity="left|center"
+            android:textSize="@dimen/text_16"
+            app:layout_constraintLeft_toRightOf="@id/weather_icon"
+            app:layout_constraintRight_toLeftOf="@id/min_temp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{cityData.name}" />
+
+        <TextView
+            android:id="@+id/weather_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/half_unit"
+            android:layout_marginTop="@dimen/half_unit"
+            android:layout_marginRight="@dimen/unit"
+            android:gravity="left|center"
+            android:textSize="@dimen/text_12"
+            android:text="@{weatherItem.description}"
+            app:layout_constraintLeft_toRightOf="@id/weather_icon"
+            app:layout_constraintRight_toLeftOf="@id/min_temp"
+            app:layout_constraintTop_toBottomOf="@id/city_name" />
+
+        <TextView
+            android:id="@+id/min_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/half_unit"
+            android:layout_marginRight="@dimen/unit"
+            android:textSize="@dimen/text_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/max_temp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{String.valueOf(weatherMain.tempMin)}"/>
+
+        <TextView
+            android:id="@+id/max_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/unit"
+            android:textSize="@dimen/text_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{String.valueOf(weatherMain.tempMax)}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

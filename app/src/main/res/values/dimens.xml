@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="min_icon_size">40dp</dimen>
+    <dimen name="unit">16dp</dimen>
+    <dimen name="text_16">16sp</dimen>
+    <dimen name="half_unit">8dp</dimen>
+    <dimen name="text_12">12sp</dimen>
+    <dimen name="text_20">20sp</dimen>
+</resources>
